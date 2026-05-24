@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Main Page</title>
+</head>
+<body>
+
+    <h2>Add Employee Department</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <input type="number" name="emp_id" placeholder="Employee ID" required>
+
+        <input type="number" name="dept_id" placeholder="Department ID" required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <hr>
+
+    <table border="1">
+        <tr>
+            <th>Employee Name</th>
+            <th>Department Name</th>
+        </tr>
+
+        {% for i in data %}
+
+        <tr>
+            <td>{{ i.emp.complete_name }}</td>
+            <td>{{ i.dept.dept_name }}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</body>
+</html>
